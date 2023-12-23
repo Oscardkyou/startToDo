@@ -8,7 +8,3 @@ func main() {
 	storage := NewInMemmoryRepository()
 	service := NewReminderService(storage)
 }
-
-type Reminder struct {
-	id string
-}

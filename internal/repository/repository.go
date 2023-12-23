@@ -1,10 +1,10 @@
-package main
+package repository
 
 type InMemmory struct {
 	s map[string]*Reminder
 }
 
-func (m InMemmory) Add(r *Reminder) {
+func (m *InMemmory) Add(r *Reminder) {
 	m.s[r.id] = r
 
 }
