@@ -1,17 +1,22 @@
 package repository
 
+import (
+	"testdk/internal"
+	"testdk/internal/domain"
+)
+
 type InMemmory struct {
-	s map[string]*Reminder
+	s map[domain.EntityId]*internal.Reminder
 }
 
-func (m *InMemmory) Add(r *Reminder) {
-	m.s[r.id] = r
+func (m *InMemmory) Add(r *internal.Reminder) {
+	m.s[r.GetId()] = r
 
 }
 
 func NewInMemmoryRepository() *InMemmory {
 	return &InMemmory{
-		s: make(map[string]*Reminder, 0),
+		s: make(map[domain.EntityId]*internal.Reminder, 0),
 	}
 }
 
