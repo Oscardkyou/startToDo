@@ -1,10 +1,15 @@
 package main
 
-func main() {
+import (
+	"fmt"
+	"testdk/internal/repository"
+	srv "testdk/internal/service"
+)
 
-	var a Reminder = Reminder{
-		id: "John Deppy",
-	}
-	storage := NewInMemmoryRepository()
-	service := NewReminderService(storage)
+func main() {
+	storage := repository.NewInMemmoryRepository()
+	service := srv.NewReminderService(storage)
+	createdModel := service.ReminderCreate()
+
+	fmt.Printf("%v", createdModel)
 }
